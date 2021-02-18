@@ -1,0 +1,1 @@
+INSERT into user values (1, 20, 4000, '28-02-2929', 'daniel@gmail.com', 'grace', 'book', 'banker', 2222)
