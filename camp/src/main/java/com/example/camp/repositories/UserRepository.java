@@ -1,5 +1,6 @@
-package com.example.camp;
+package com.example.camp.repositories;
 
+import com.example.camp.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

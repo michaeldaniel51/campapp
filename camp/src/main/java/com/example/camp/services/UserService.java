@@ -1,12 +1,11 @@
-package com.example.camp;
+package com.example.camp.services;
 
+import com.example.camp.entities.User;
+import com.example.camp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -35,9 +34,9 @@ public class UserService {
          users.add(user);
     }
 
-    public User findSomeUserById(String id){
+    public User findSomeUserById(String id) throws Exception {
 
-        User user = users.stream().filter(t-> id.equals(t.getId())).findFirst().orElse(null);
+        User user = users.stream().filter(t-> id.equals(t.getId())).findFirst().orElseThrow(()->new Exception("not found"));
 
         return user;
 
@@ -80,9 +79,9 @@ public class UserService {
 
     }
 
-    public void findById(long id) {
+    public User findById(long id) throws Exception {
 
-        userRepository.findById(id);
+        return userRepository.findById(id).orElseThrow(() -> new Exception("not found"));
 
     }
 
@@ -96,5 +95,8 @@ public class UserService {
 
         userRepository.save(user);
 
+    }
+
+    public void getUserByEmail() {
     }
 }

@@ -1,6 +1,8 @@
-package com.example.camp;
+package com.example.camp.controllers;
 
 
+import com.example.camp.entities.User;
+import com.example.camp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public void getUserById(@PathVariable long id){
+    public void getUserById(@PathVariable long id) throws Exception {
         userService.findById(id);
     }
 
@@ -58,7 +60,7 @@ public class UserController {
         return userService.getSomeUser();
     }
     @GetMapping("/some/{id}")
-    public User getById(@PathVariable String id){
+    public User getById(@PathVariable String id) throws Exception {
         return userService.findSomeUserById(id);
     }
 

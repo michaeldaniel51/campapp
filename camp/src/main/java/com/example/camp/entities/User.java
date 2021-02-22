@@ -1,4 +1,4 @@
-package com.example.camp;
+package com.example.camp.entities;
 
 
 import javax.persistence.*;
@@ -134,5 +134,21 @@ public class User {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", occupation='" + occupation + '\'' +
+                ", age='" + age + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", balance=" + balance +
+                '}';
     }
 }
