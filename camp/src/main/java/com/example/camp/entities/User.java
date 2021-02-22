@@ -45,6 +45,9 @@ public class User {
     @Column(name = "BALANCE")
     private long balance;
 
+    @NotNull(message = "Enter Your PhoneNumber")
+    @Column(name = "PHONENUMBER")
+    private long phoneNumber;
 
     public long getBalance() {
         return balance;
@@ -56,7 +59,7 @@ public class User {
 
 
 
-    public User(long id, @NotNull(message = "Please Enter FirstName") String firstName, @NotNull(message = "Please Enter LastName") String lastName, @NotNull(message = "Please Enter a Valid Email") String email, @NotNull(message = "Please Enter a Valid Password") String password, @NotNull(message = "Please Enter Your Occupation") String occupation, @NotNull(message = "Please Enter Your Age") String age, @NotNull(message = "Please Enter Date Of Birth") String dateOfBirth, long balance) {
+    public User(long id, @NotNull(message = "Please Enter FirstName") String firstName, @NotNull(message = "Please Enter LastName") String lastName, @NotNull(message = "Please Enter a Valid Email") String email, @NotNull(message = "Please Enter a Valid Password") String password, @NotNull(message = "Please Enter Your Occupation") String occupation, @NotNull(message = "Please Enter Your Age") String age, @NotNull(message = "Please Enter Date Of Birth") String dateOfBirth,@NotNull long balance,@NotNull long phoneNumber) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -66,6 +69,7 @@ public class User {
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.balance = balance;
+        this.phoneNumber = phoneNumber;
     }
 
 
@@ -149,6 +153,7 @@ public class User {
                 ", age='" + age + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", balance=" + balance +
+                ", phoneNumber=" + phoneNumber +
                 '}';
     }
 }
