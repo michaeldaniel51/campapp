@@ -1,9 +1,10 @@
 package com.example.camp.entities;
 
-import com.example.camp.entities.User;
+import org.hibernate.id.UUIDGenerationStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.UUID;
 
 public class Otp {
 
@@ -13,16 +14,17 @@ public class Otp {
 
     @NotNull(message = "Your Token Is!!!")
     @Column(name = "Token")
-    private long token;
+    private long otpToken= UUID.randomUUID().getMostSignificantBits();
 
     @JoinColumn(name = "USER_OTP")
     @OneToOne
     private User user;
 
 
-    public Otp(long id, @NotNull(message = "Your Token Is!!!") long token, User user) {
+    public Otp(long id, @NotNull(message = "Your Token Is!!!") long token, @NotNull(message = "Your Token Is!!!") long otptoken, User user) {
         this.id = id;
-        this.token = token;
+        otpToken = otpToken;
+        this.otpToken = otpToken;
         this.user = user;
     }
 
@@ -35,11 +37,11 @@ public class Otp {
     }
 
     public long getToken() {
-        return token;
+        return otpToken;
     }
 
     public void setToken(long token) {
-        this.token = token;
+        this.otpToken = otpToken;
     }
 
     public User getUser() {
@@ -55,7 +57,7 @@ public class Otp {
     public String toString() {
         return "Otp{" +
                 "id=" + id +
-                ", token=" + token +
+                ", otpToken=" + otpToken +
                 ", user=" + user +
                 '}';
     }

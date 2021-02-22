@@ -140,6 +140,13 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
     @Override
     public String toString() {
