@@ -46,7 +46,7 @@ public class User {
     private long balance;
 
     @NotNull(message = "Enter Your PhoneNumber")
-    @Column(name = "PHONENUMBER")
+    @Column(name = "PHONE_NUMBER")
     private long phoneNumber;
 
     public long getBalance() {

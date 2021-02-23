@@ -14,6 +14,31 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @GetMapping("/some")
+    public List<User> getSomeUser(){
+        return userService.getSomeUser();
+    }
+
+
+    @GetMapping("/some/{id}")
+    public User getById(@PathVariable String id) throws Exception {
+        return userService.findSomeUserById(id);
+    }
+
+    @DeleteMapping("/some/{id}")
+    public void deleteById(@PathVariable String id){
+        userService.deleteSomeUserById(id);
+    }
+
+    @PostMapping("/some")
+    public void addSome(@RequestBody User user){
+        userService.addSomeUser(user);
+    }
+
+    @PutMapping("/some")
+    public void updateSomeUser(@RequestBody User user) throws Exception {
+        userService.updateSomeUser(user);
+    }
 
     @GetMapping("/users")
     public List<User> getAllUser (){
@@ -51,31 +76,9 @@ public class UserController {
     }
 
     @GetMapping("/users/email/{email}")
-    public User getByEmail(@PathVariable("email") String email) {
+    public User getByEmail(@PathVariable String email) {
         return userService.getUserByEmail(email).get();
     }
 
-    @GetMapping("/some")
-    public List<User> getSomeUser(){
-        return userService.getSomeUser();
-    }
-    @GetMapping("/some/{id}")
-    public User getById(@PathVariable String id) throws Exception {
-        return userService.findSomeUserById(id);
-    }
 
-    @DeleteMapping("/some/{id}")
-    public void deleteById(@PathVariable String id){
-        userService.deleteSomeUserById(id);
-    }
-
-    @PostMapping("/some")
-    public void addSome(@RequestBody User user){
-        userService.addSomeUser(user);
-    }
-
-    @PutMapping("/some")
-    public void updateSomeUser(@RequestBody User user) throws Exception {
-        userService.updateSomeUser(user);
-    }
 }

@@ -20,7 +20,7 @@ public class Transaction {
     private String type;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "USER_ID")
     private  User user;
 
     public Transaction(String id, int amount, String type) {
